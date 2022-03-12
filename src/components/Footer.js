@@ -2,8 +2,10 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <div><p>
-        Hi this is footer
-        </p></div>
+    
+        <footer className="bg-dark text-light py-3">
+            <p className='text-center'>
+                Copyright &2022: Abhishek Singh</p>
+        </footer>
   )
 }

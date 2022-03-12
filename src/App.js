@@ -2,12 +2,15 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header'
 import { Footer } from './components/Footer';
+import About from './components/About';
 
 function App() {
   return (
     <>
- <Header/>
- <Footer/>
+ <Header title="My Todo List"/>
+    <About/>
+ {/*destructured props used in footer */}
+ <Footer name="Abhishek Singh"/> 
     </>
   );
 }

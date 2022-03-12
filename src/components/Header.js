@@ -1,10 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function Header() {
+export default function Header(props) {
   return (
      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <div className="container-fluid">
-      <a className="navbar-brand" href="#">My TodoList</a>
+      <a className="navbar-brand" href="#">{props.title}</a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -22,4 +23,18 @@ export default function Header() {
     </div>
   </nav>
   )
+
+
 }
+
+//adding default titles
+
+Header.defaultProps = {
+  title: "My Todo List"
+}
+
+  //strict checking that title is string
+  Header.propTypes = {
+    title : PropTypes.string.isRequired
+  }
+

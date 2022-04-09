@@ -172,7 +172,7 @@ setListItemData(finalData);
                   (item,index)=>{
                     return(
                         <ListItem>
-                            <Item>{item}</Item>
+                            <Item key={index}>{item}</Item>
                             <Delete onClick={()=>removeItem(index)} ><MdDelete /></Delete>
                         </ListItem>
                     )

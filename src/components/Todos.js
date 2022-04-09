@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import {MdDelete} from 'react-icons/md'
 import { IconContext } from "react-icons";
+ 
 
 
 
@@ -100,9 +101,27 @@ margin-left: 10px;
 
 `
 
+
+
+const getLocalItem = ()=>{
+    let list = localStorage.getItem('list');
+    if(list){
+        return JSON.parse(list);
+
+    }else{
+        return [];
+    }
+}
+
 const Todos = (props) => {
+
+    
+    
     const [data,setData] = useState('');
-    const [listItemData,setListItemData] = useState([]);
+    const [listItemData,setListItemData] = useState(getLocalItem);
+    useEffect(()=>{
+    localStorage.setItem("list",JSON.stringify(listItemData))
+},[listItemData])
     // useEffect(() => {
         
     //   },[data]);
@@ -125,6 +144,7 @@ const insertData = (e) =>{
 //oldArray => [...oldArray, newElement]
 setListItemData(listItemData=>[...listItemData,data]);
     console.log(listItemData);
+   // setData('');
 }
 const removeItem = (a) =>{
     const finalData = listItemData.filter((currentElement,index) => {

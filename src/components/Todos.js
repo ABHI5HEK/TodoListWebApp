@@ -102,7 +102,7 @@ margin-left: 10px;
 
 const Todos = (props) => {
     const [data,setData] = useState('');
-    const [listItemData,setListItemData] = useState({name:"",id:count});
+    const [listItemData,setListItemData] = useState([]);
     // useEffect(() => {
         
     //   },[data]);
@@ -126,6 +126,14 @@ const insertData = (e) =>{
 setListItemData(listItemData=>[...listItemData,data]);
     console.log(listItemData);
 }
+const removeItem = (a) =>{
+    const finalData = listItemData.filter((currentElement,index) => {
+        return index !==a;
+    }
+    
+)
+setListItemData(finalData);
+}
 
     
   return (
@@ -145,7 +153,7 @@ setListItemData(listItemData=>[...listItemData,data]);
                     return(
                         <ListItem>
                             <Item>{item}</Item>
-                            <Delete><MdDelete /></Delete>
+                            <Delete onClick={()=>removeItem(index)} ><MdDelete /></Delete>
                         </ListItem>
                     )
                   }

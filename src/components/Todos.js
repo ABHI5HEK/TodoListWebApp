@@ -115,7 +115,7 @@ const getLocalItem = ()=>{
 
 const Todos = (props) => {
 
-    
+    const [extra,setExtra] = useState([]);
     
     const [data,setData] = useState('');
     const [listItemData,setListItemData] = useState(getLocalItem);
@@ -133,6 +133,35 @@ const Todos = (props) => {
     //let arr = ["name","value","name"];
 const onChangeHandler = (e) =>{
     setData(e.target.value)
+    /* let len = data.length+1;
+
+let a = Math.ceil(Math.random()*len);
+a = a>len?a%len+1:a;
+console.log("a",a);
+while(a>len){
+   a = a%len;
+}
+
+        let ee = [];
+        ee[0] = data;
+    for(let j=1;j<a;j++){
+        let result = ' ';
+            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            const charactersLength = len;
+        for ( let i = 0; i < len; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        ee[j] = result;
+        //console.log(result);
+        
+    }
+    setExtra(ee);
+    console.log(extra);
+     */
+
+/* for(let i=0;i<a;i++){
+    //str[i] = randomString(a);  
+} */
     //console.log(e.target.value);
 }
 const insertData = (e) =>{
@@ -142,7 +171,37 @@ const insertData = (e) =>{
 //    arr.id = ++count;
 //    arr.name = data;
 //oldArray => [...oldArray, newElement]
+
+
+let len = data.length;
+let a ;
+a = Math.ceil(Math.random()*len)*len;
+ a = a>len?a/len:a;
+console.log("a",a);
+/* while(a>len){
+    a = a>len?a%len:a;
+    console.log(a);
+} */
 setListItemData(listItemData=>[...listItemData,data]);
+        let ee = [];
+        ee[0] = data;
+    for(let j=1;j<a;j++){
+        let result = ' ';
+            const characters = data;
+            const charactersLength = len;
+        for ( let i = 0; i < a; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        setListItemData(listItemData=>[...listItemData,result]);
+        //ee[j] = result;
+        //console.log(result);
+        
+    }
+    //setExtra(ee);
+    //console.log(extra);
+    
+
+//setListItemData(listItemData=>[...listItemData,extra]);
     console.log(listItemData);
    // setData('');
 }
